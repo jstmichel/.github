@@ -1,0 +1,120 @@
+name: "💡 Idea"
+description: "Capture a product idea, problem, or opportunity before specification."
+title: "[IDEA] "
+labels:
+  - "type:idea"
+  - "status:needs-clarification"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to capture the intent behind a possible change.
+
+        Focus on the **problem, opportunity, and desired outcome**.
+
+        Do not define architecture, implementation details, APIs, database changes,
+        or technical tasks yet. Those belong to later SDD stages.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Problem or opportunity"
+      description: |
+        What is happening today? What problem exists, or what opportunity do you see?
+        Explain why this is worth considering.
+      placeholder: |
+        Example:
+        Users frequently repeat the same searches with similar filters.
+        Today they must rebuild those filters manually each time.
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: "Desired outcome"
+      description: |
+        What should become possible or better if this idea succeeds?
+        Describe the outcome without prescribing the technical solution.
+      placeholder: |
+        Example:
+        Returning users should be able to quickly reuse a previous search
+        without rebuilding it manually.
+    validations:
+      required: true
+
+  - type: textarea
+    id: users
+    attributes:
+      label: "Who is affected?"
+      description: |
+        Who experiences the problem or benefits from the opportunity?
+        This can be a user type, role, customer, administrator, developer, or system actor.
+      placeholder: |
+        Example:
+        Returning users who regularly perform similar searches.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Known context"
+      description: |
+        Add facts that are already known and useful for understanding the idea.
+        Avoid speculative implementation details.
+      placeholder: |
+        Examples:
+        - Search filters already exist.
+        - Result URLs do not preserve all search state.
+        - This mainly affects authenticated users.
+    validations:
+      required: false
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: "Open questions"
+      description: |
+        What still needs clarification before this can become a specification?
+        These questions will drive the CLARIFY stage.
+      placeholder: |
+        Examples:
+        - What parts of a search should be preserved?
+        - Can users edit a saved search?
+        - Should there be a limit?
+        - Is authentication required?
+    validations:
+      required: false
+
+  - type: textarea
+    id: why-now
+    attributes:
+      label: "Why now?"
+      description: |
+        Optional. Is there a reason this idea matters now?
+        For example: user feedback, recurring pain, product direction, dependency, or opportunity.
+      placeholder: |
+        Example:
+        This has come up repeatedly in recent user feedback.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional context"
+      description: |
+        Optional. Add screenshots, examples, links, related issues, or prior discussions.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: idea-boundary
+    attributes:
+      label: "IDEA stage check"
+      description: |
+        Confirm that this issue is still about product intent rather than implementation.
+      options:
+        - label: "This issue describes the problem or opportunity and desired outcome without committing to a technical implementation."
+          required: true
